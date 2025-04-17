@@ -22,8 +22,7 @@ async function fetchCategories() {
 fetchCategories();
 
 function renderCategories(categories) {
-  console.log(categories);
-  categoriesGridContainer.innerHTML = "";
+  categoriesGridContainer.innerHTML = " ";
 
   categories.forEach((element) => {
     const categoryCard = document.createElement("div");
