@@ -1,5 +1,8 @@
+console.log("index.js");
+
 const getRecipeBtn = document.querySelector(".get-recipe-btn");
 
 getRecipeBtn.addEventListener("click", () => {
-  window.location.href = "recipe.html?random=true"; // pour une recette aléatoire
+  console.log("get recipe btn");
+  window.location.href = "recipe.html";
 });

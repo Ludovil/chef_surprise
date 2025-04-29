@@ -38,7 +38,7 @@ function renderCategories(categories) {
 
     const categoryRandomBtn = document.createElement("button");
     categoryRandomBtn.classList.add("btn", "btn-primary");
-    categoryRandomBtn.innerText = "Random";
+    categoryRandomBtn.innerText = "Get Recipe";
 
     const categoryListBtn = document.createElement("button");
     categoryListBtn.classList.add("btn", "btn-outline");
