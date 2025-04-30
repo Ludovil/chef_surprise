@@ -1,5 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 body {
-  background-color: #00f0f0;
+  background-color: #000000;
+}
+
+h1 {
+  color: #ffb16a;
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 400;
+  font-size: 5rem;
+  font-style: normal;
+}
+
+h2 {
+  color: #ffb16a;
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+h3 {
+  color: #ffffff;
+}
+
+header a {
+  color: #ec780d;
+}
+header i {
+  color: #ffb16a;
 }
 
 /*# sourceMappingURL=main.css.map */

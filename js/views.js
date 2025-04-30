@@ -149,7 +149,7 @@ export function renderListcategory(category, categoryName) {
 
     categoryListCard.appendChild(categoryListImg);
 
-    const categoryListDescription = document.createElement("h2");
+    const categoryListDescription = document.createElement("h3");
     categoryListDescription.classList.add("category-list-description");
     categoryListDescription.innerHTML = element.strMeal;
 

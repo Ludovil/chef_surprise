@@ -1,7 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 @import "variables";
 @import "buttons";
 @import "cards";
 
 body {
   background-color: $body-background-color;
+}
+
+h1 {
+  color: $primary-color;
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 400;
+  font-size: 5rem;
+  font-style: normal;
+}
+
+h2 {
+  color: $primary-color;
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+h3 {
+  color: $tertiary-color;
+}
+
+header {
+  a {
+    color: $secondary-color;
+  }
+  i {
+    color: $primary-color;
+  }
 }
