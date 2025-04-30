@@ -1,7 +1,4 @@
-console.log("api call");
-
 export async function fetchRandomRecipe() {
-  console.log("fetchrandomrecipe");
   const url = "https://www.themealdb.com/api/json/v1/1/random.php";
   try {
     const response = await fetch(url);
@@ -17,7 +14,6 @@ export async function fetchRandomRecipe() {
 }
 
 export async function fetchCategories() {
-  console.log("fetch categories");
   const url = "https://www.themealdb.com/api/json/v1/1/categories.php";
   try {
     const response = await fetch(url);
@@ -33,9 +29,10 @@ export async function fetchCategories() {
   }
 }
 
-export async function fetchOneCategory() {
-  console.log("fetch one category");
-  const url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood";
+export async function fetchListCategory(categoryName) {
+  const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent(
+    categoryName
+  )}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -43,8 +40,21 @@ export async function fetchOneCategory() {
     }
 
     const json = await response.json();
-    const category = json.meals;
-    return category;
+    return json.meals;
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+export async function fetchRecipeWithId(recipeId) {
+  const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    const json = await response.json();
+    return json.meals[0];
   } catch (error) {
     console.error(error.message);
   }

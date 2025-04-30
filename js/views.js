@@ -1,16 +1,12 @@
+import { fetchListCategory } from "./api.js";
+
 const recipeContainer = document.querySelector(".recipe-container");
 const recipeMain = document.querySelector(".recipe-main");
 const recipeInfo = document.querySelector(".recipe-info");
 const recipeIngredients = document.querySelector(".recipe-ingredients");
 const recipeInstructions = document.querySelector(".recipe-instructions");
 
-const categoriesGridContainer = document.querySelector(
-  ".categories-grid-container"
-);
-
 export function renderRecipe(recipe) {
-  console.log(recipe);
-
   // Title
   const recipeTitle = document.createElement("h1");
   recipeTitle.classList.add("recipe-title");
@@ -57,7 +53,6 @@ export function renderRecipe(recipe) {
   const instructions = document.createElement("p");
   instructions.innerHTML = recipe.strInstructions;
   recipeInstructions.appendChild(instructions);
-  console.log(instructions);
 
   // Video
   const recipeVideoContainer = document.createElement("div");
@@ -82,6 +77,10 @@ export function renderRecipe(recipe) {
   }
 }
 
+const categoriesGridContainer = document.querySelector(
+  ".categories-grid-container"
+);
+
 export function renderCategories(categories) {
   categoriesGridContainer.innerHTML = " ";
 
@@ -105,10 +104,19 @@ export function renderCategories(categories) {
     categoryListBtn.classList.add("btn", "btn-outline");
     categoryListBtn.innerText = "List";
 
-    // en cours
-    categoryListBtn.addEventListener("click", async (event) => {
-      console.log("categorylistBtn");
-      window.location.href = "category.html";
+    categoryListBtn.addEventListener("click", async () => {
+      const categoryName = element.strCategory;
+      window.location.href = `category.html?category=${encodeURIComponent(
+        categoryName
+      )}`;
+    });
+
+    categoryRandomBtn.addEventListener("click", async () => {
+      const categoryName = element.strCategory;
+      const recipes = await fetchListCategory(categoryName);
+      const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
+      const recipeId = randomRecipe.idMeal;
+      window.location.href = `recipe.html?id=${recipeId}`;
     });
 
     categoryCard.appendChild(categoryImg);
@@ -117,5 +125,44 @@ export function renderCategories(categories) {
     categoryCard.appendChild(categoryListBtn);
 
     categoriesGridContainer.appendChild(categoryCard);
+  });
+}
+
+const categoryListName = document.querySelector(".category-name");
+const categoryGridContainer = document.querySelector(
+  ".category-grid-container"
+);
+
+export function renderListcategory(category, categoryName) {
+  categoryGridContainer.innerHTML = " ";
+  categoryListName.innerHTML = categoryName;
+
+  category.forEach((element) => {
+    const categoryListCard = document.createElement("div");
+    categoryListCard.classList.add("category-list-card");
+
+    categoryGridContainer.appendChild(categoryListCard);
+
+    const categoryListImg = document.createElement("img");
+    categoryListImg.classList.add("category-list-img");
+    categoryListImg.src = element.strMealThumb;
+
+    categoryListCard.appendChild(categoryListImg);
+
+    const categoryListDescription = document.createElement("h2");
+    categoryListDescription.classList.add("category-list-description");
+    categoryListDescription.innerHTML = element.strMeal;
+
+    categoryListCard.appendChild(categoryListDescription);
+
+    const getRecipeListBtn = document.createElement("button");
+    getRecipeListBtn.classList.add("btn", "btn-primary");
+    getRecipeListBtn.innerHTML = "Get Recipe";
+
+    categoryListCard.appendChild(getRecipeListBtn);
+
+    getRecipeListBtn.addEventListener("click", async () => {
+      window.location.href = `recipe.html?id=${element.idMeal}`;
+    });
   });
 }
