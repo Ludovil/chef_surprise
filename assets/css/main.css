@@ -1,14 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid #ec780d;
+  border-radius: 25px;
+  padding: 8px 16px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ec780d;
+  font-family: "Libre Caslon Text", serif;
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  background-color: #ec780d;
+  color: #ffffff;
+}
+
 body {
   background-color: #000000;
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  padding: 0 48px;
+}
+
+header {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+header a {
+  color: #ec780d;
+}
+header i {
+  color: #ffb16a;
+}
+
+.home-page-main-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin: 0;
+}
+
+.home-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page-paragraph {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.home-page-image {
+  display: flex;
+  align-items: flex-end;
+}
+
+.home-page-image img {
+  max-width: 100%;
+  display: block;
 }
 
 h1 {
   color: #ffb16a;
   font-family: "Libre Caslon Text", serif;
   font-weight: 400;
-  font-size: 5rem;
+  font-size: 96px;
   font-style: normal;
+  margin: 0;
 }
 
 h2 {
@@ -16,17 +81,11 @@ h2 {
   font-family: "Libre Caslon Text", serif;
   font-weight: 400;
   font-style: italic;
+  font-size: 36px;
 }
 
 h3 {
   color: #ffffff;
-}
-
-header a {
-  color: #ec780d;
-}
-header i {
-  color: #ffb16a;
 }
 
 /*# sourceMappingURL=main.css.map */
