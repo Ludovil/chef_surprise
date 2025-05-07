@@ -7,25 +7,32 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css" />
     <title>Chef's Surprise</title>
   </head>
   <body>
-    <header>
-      <a href="index.html"
-        ><i class="fa-solid fa-arrow-left"></i>Back to home</a
-      >
-      <a href="categories.html"
-        >Go to Categories <i class="fa-solid fa-arrow-right"></i
-      ></a>
-    </header>
-    <main class="recipe-container">
-      <div class="recipe-main">
-        <div class="recipe-info"></div>
-        <div class="recipe-ingredients"></div>
-      </div>
-    </main>
-    <section class="recipe-instructions"></section>
+    <div class="layout">
+      <header>
+        <a href="index.html"
+          ><i class="fa-solid fa-arrow-left"></i>Back to home</a
+        >
+        <a href="categories.html"
+          >Go to Categories <i class="fa-solid fa-arrow-right"></i
+        ></a>
+      </header>
+
+      <main class="recipe-container">
+        <h1 class="recipe-title"></h1>
+        <div class="recipe-main">
+          <div class="recipe-info"></div>
+
+          <div class="recipe-ingredients">
+            <h2 class="ingredients-title">Ingredients</h2>
+          </div>
+        </div>
+      </main>
+      <section class="recipe-instructions"></section>
+    </div>
     <script type="module" src="./js/recipe.js"></script>
   </body>
 </html>

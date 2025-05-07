@@ -1,17 +1,16 @@
 import { fetchListCategory } from "./api.js";
 
 const recipeContainer = document.querySelector(".recipe-container");
-const recipeMain = document.querySelector(".recipe-main");
+const recipeTitle = document.querySelector(".recipe-title");
 const recipeInfo = document.querySelector(".recipe-info");
 const recipeIngredients = document.querySelector(".recipe-ingredients");
 const recipeInstructions = document.querySelector(".recipe-instructions");
 
+console.log(recipeContainer);
+
 export function renderRecipe(recipe) {
   // Title
-  const recipeTitle = document.createElement("h1");
-  recipeTitle.classList.add("recipe-title");
   recipeTitle.innerHTML = recipe.strMeal;
-  recipeInfo.appendChild(recipeTitle);
 
   // Category
   const recipeCategory = document.createElement("h2");
@@ -27,6 +26,7 @@ export function renderRecipe(recipe) {
 
   // Tags
   const recipeStringTags = recipe.strTags;
+  console.log(recipeStringTags);
   const recipeArrayTags = recipeStringTags ? recipeStringTags.split(",") : [];
   recipeArrayTags.forEach((element) => {
     const recipeTag = document.createElement("p");

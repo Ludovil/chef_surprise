@@ -82,10 +82,50 @@ h2 {
   font-weight: 400;
   font-style: italic;
   font-size: 36px;
+  margin: 0;
 }
 
 h3 {
   color: #ffffff;
+}
+
+.recipe-container {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-title {
+  font-size: 48px;
+  text-align: center;
+}
+
+.recipe-info {
+  border: 1px solid green;
+}
+
+.recipe-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 3px solid yellow;
+}
+
+.recipe-category,
+.ingredients-title {
+  font-size: 32px;
+  color: #ec780d;
+}
+
+.recipe-tag {
+  color: white;
+}
+
+.recipe-ingredients {
+  color: white;
+}
+
+.recipe-instructions {
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
