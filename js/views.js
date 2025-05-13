@@ -4,7 +4,9 @@ const recipeContainer = document.querySelector(".recipe-container");
 const recipeTitle = document.querySelector(".recipe-title");
 const recipeInfo = document.querySelector(".recipe-info");
 const recipeIngredients = document.querySelector(".recipe-ingredients");
-const recipeInstructions = document.querySelector(".recipe-instructions");
+const recipeInstrcutionsContainer = document.querySelector(
+  ".recipe-instructions-container"
+);
 
 console.log(recipeContainer);
 
@@ -12,11 +14,11 @@ export function renderRecipe(recipe) {
   // Title
   recipeTitle.innerHTML = recipe.strMeal;
 
-  // Category
-  const recipeCategory = document.createElement("h2");
-  recipeCategory.classList.add("recipe-category");
-  recipeCategory.innerHTML = recipe.strCategory;
-  recipeInfo.appendChild(recipeCategory);
+  // Category - Area
+  const recipeCategoryAndArea = document.createElement("h2");
+  recipeCategoryAndArea.classList.add("recipe-category");
+  recipeCategoryAndArea.innerHTML = `${recipe.strCategory} - ${recipe.strArea}`;
+  recipeInfo.appendChild(recipeCategoryAndArea);
 
   // Img
   const recipeImg = document.createElement("img");
@@ -25,19 +27,25 @@ export function renderRecipe(recipe) {
   recipeInfo.appendChild(recipeImg);
 
   // Tags
+  const recipeTagsContainer = document.createElement("div");
+  recipeTagsContainer.classList.add("recipe-tags-container");
+  recipeInfo.appendChild(recipeTagsContainer);
   const recipeStringTags = recipe.strTags;
-  console.log(recipeStringTags);
   const recipeArrayTags = recipeStringTags ? recipeStringTags.split(",") : [];
   recipeArrayTags.forEach((element) => {
     const recipeTag = document.createElement("p");
     recipeTag.innerText = `#${element}`;
     recipeTag.classList.add("recipe-tag");
-    recipeInfo.appendChild(recipeTag);
+    recipeTagsContainer.appendChild(recipeTag);
   });
 
   // Ingredients & Measures
+  const ingredientsListContainer = document.createElement("div");
+  ingredientsListContainer.classList.add("ingredients-list-container");
   const recipeIngredientsAndMeasures = document.createElement("ul");
-  recipeIngredients.appendChild(recipeIngredientsAndMeasures);
+
+  ingredientsListContainer.appendChild(recipeIngredientsAndMeasures);
+  recipeIngredients.appendChild(ingredientsListContainer);
 
   for (let i = 1; i <= 20; i++) {
     if (recipe["strIngredient" + i] && recipe["strMeasure" + i]) {
@@ -50,13 +58,19 @@ export function renderRecipe(recipe) {
   }
 
   // Instructions
-  const instructions = document.createElement("p");
-  instructions.innerHTML = recipe.strInstructions;
-  recipeInstructions.appendChild(instructions);
+  if (recipe.strInstructions) {
+    const instructions = document.createElement("p");
+    const formattedInstructions = recipe.strInstructions.replace(
+      /\.\s/g,
+      ".<br><br>"
+    );
+    instructions.innerHTML = formattedInstructions;
+    recipeInstrcutionsContainer.appendChild(instructions);
+  }
 
   // Video
   const recipeVideoContainer = document.createElement("div");
-  recipeInstructions.appendChild(recipeVideoContainer);
+  recipeInstrcutionsContainer.appendChild(recipeVideoContainer);
 
   const videoId = extractVideoIdFromUrl(recipe.strYoutube);
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
