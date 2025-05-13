@@ -16,7 +16,7 @@ export function renderRecipe(recipe) {
 
   // Category - Area
   const recipeCategoryAndArea = document.createElement("h2");
-  recipeCategoryAndArea.classList.add("recipe-category");
+  recipeCategoryAndArea.classList.add("recipe-category-area");
   recipeCategoryAndArea.innerHTML = `${recipe.strCategory} - ${recipe.strArea}`;
   recipeInfo.appendChild(recipeCategoryAndArea);
 

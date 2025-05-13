@@ -1,0 +1,10 @@
+.category-card {
+  border: 1px solid blue;
+  color: $tertiary-color;
+  flex: 0 0 calc(25% - 10px); /* 4 cartes par ligne, en tenant compte du gap */
+  box-sizing: border-box;
+  text-align: center;
+  .category-img {
+    border: 10px solid yellow;
+  }
+}

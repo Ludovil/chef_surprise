@@ -1,4 +1,5 @@
-.btn-outline {
+.btn-outline,
+.btn-primary {
   background-color: transparent;
   border: 2px solid $secondary-color;
   border-radius: 25px;
@@ -12,5 +13,15 @@
   &:hover {
     background-color: $secondary-color;
     color: $tertiary-color;
+  }
+}
+
+.btn-primary {
+  background-color: $secondary-color;
+  color: $tertiary-color;
+
+  &:hover {
+    background-color: transparent;
+    color: $secondary-color;
   }
 }

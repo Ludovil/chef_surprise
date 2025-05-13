@@ -16,7 +16,7 @@ body {
   grid-template-rows: auto 1fr;
   min-height: 100vh;
   padding: 0 48px;
-  border: 1px solid blue;
+  border: 1px solid white;
 }
 
 header {
@@ -86,7 +86,6 @@ h3 {
 // recipe page ////////////////////////////////////////////////////////
 
 .recipe-container {
-  border: 1px solid white;
   display: flex;
   flex-direction: column;
 }
@@ -94,16 +93,15 @@ h3 {
 .recipe-title {
   font-size: 48px;
   text-align: center;
+  padding: 48px 0;
 }
 
 .recipe-main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border: 3px solid yellow;
 }
 
 .recipe-info {
-  border: 10px solid green;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,12 +112,11 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 10px solid red;
+
   color: white;
 }
 
 .ingredients-list-container {
-  border: 1px solid yellow;
   height: 100%;
   width: 100%;
   display: flex;
@@ -134,19 +131,21 @@ h3 {
   font-family: $primary-font;
   font-size: 24px;
 }
-.recipe-category,
+
+.recipe-category-area,
 .ingredients-title {
   font-size: 32px;
   color: $secondary-color;
   text-align: center;
   font-style: normal;
+  padding-bottom: 24px;
 }
 
 .recipe-img {
   width: 100%;
+  border: 1px solid $primary-color;
 }
 .recipe-tags-container {
-  border: 1px solid yellow;
   width: 100%;
 }
 .recipe-tag {
@@ -154,15 +153,26 @@ h3 {
 }
 
 // Redcipe instructions /////////////////////////////////////////////////
+
 .recipe-instructions-container {
   height: 100vh;
   padding: 0 72px;
   margin-top: 48px;
-  border: 3px solid blue;
 }
 
 .recipe-instructions-container p {
   color: white;
   font-size: 16px;
   font-family: $primary-font;
+}
+
+// Redcipe Categories /////////////////////////////////////////////////
+
+.categories-grid-container {
+  border: 1px solid green;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
 }
