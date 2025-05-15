@@ -27,14 +27,24 @@
 }
 
 .category-card {
-  border: 1px solid blue;
   color: #ffffff;
   flex: 0 0 calc(25% - 10px); /* 4 cartes par ligne, en tenant compte du gap */
   box-sizing: border-box;
   text-align: center;
+  border: 1px solid white;
+  width: 250px;
+  height: 400px;
 }
 .category-card .category-img {
-  border: 10px solid yellow;
+  border: 1px solid white;
+  width: 100%;
+}
+.category-card .category-title {
+  font: "Libre Caslon Text", serif;
+  font-size: 32px;
+  color: #ffb16a;
+  bottom: -50px;
+  background-color: black;
 }
 
 body {
@@ -194,7 +204,6 @@ h3 {
 }
 
 .categories-grid-container {
-  border: 1px solid green;
   width: 100%;
   display: flex;
   flex-wrap: wrap;

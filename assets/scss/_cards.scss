@@ -1,10 +1,22 @@
 .category-card {
-  border: 1px solid blue;
   color: $tertiary-color;
   flex: 0 0 calc(25% - 10px); /* 4 cartes par ligne, en tenant compte du gap */
   box-sizing: border-box;
   text-align: center;
+  border: 1px solid white;
+  width: 250px;
+  height: 400px;
+
   .category-img {
-    border: 10px solid yellow;
+    border: 1px solid white;
+    width: 100%;
+  }
+  .category-title {
+    font: $primary-font;
+    font-size: 32px;
+    color: $primary-color;
+
+    bottom: -50px;
+    background-color: black;
   }
 }
